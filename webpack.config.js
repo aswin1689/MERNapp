@@ -1,11 +1,29 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
 
-const htmlWebpackPlugin = new HtmlWebPackPlugin({
-    template: './src/index.html',
-    filename: './index.html'
-});
+const NODE_ENV = process.env.NODE_ENV;
+
+const setPath = function(folderName) {
+    return path.join(__dirname, folderName);
+};
+
+const isProd = function() {
+    return process.env.NODE_ENV === 'production' ? true : false;
+};
+
+const buildingForLocal = () => {
+    return NODE_ENV === 'development';
+};
 
 module.exports = {
+    mode: buildingForLocal() ? 'development' : 'production',
+    entry: {
+        app: setPath('src/client/index.js')
+    },
+    output: {
+        filename: '[name].bundle.js',
+        path: setPath('public')
+    },
     module: {
         rules: [
             {
@@ -17,5 +35,10 @@ module.exports = {
             }
         ]
     },
-    plugins: [htmlWebpackPlugin]
+    devServer: {
+        contentBase: './public',
+        compress: true,
+        port: 9000,
+        https: true
+    }
 };
