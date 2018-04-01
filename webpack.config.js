@@ -22,7 +22,7 @@ module.exports = {
     },
     output: {
         filename: '[name].bundle.js',
-        path: setPath('public')
+        path: setPath('src/static')
     },
     module: {
         rules: [
@@ -36,7 +36,7 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: './public',
+        contentBase: setPath('src/resources'),
         compress: true,
         port: 9000,
         https: true
