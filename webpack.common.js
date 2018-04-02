@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV;
 
@@ -20,6 +21,11 @@ module.exports = {
     entry: {
         app: setPath('src/client/index.js')
     },
+    plugins: [
+        new CleanWebpackPlugin(['src/static']),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
+    ],
     output: {
         filename: '[name].bundle.js',
         path: setPath('src/static')
@@ -34,12 +40,6 @@ module.exports = {
                 }
             }
         ]
-    },
-    devServer: {
-        contentBase: setPath('src/resources'),
-        compress: true,
-        port: 9000,
-        https: true
     },
     performance: {
         hints: isProd() ? 'warnings' : false
