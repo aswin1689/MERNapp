@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "webpack-dev-server --inline --hot --config webpack.config.js",
-        "build": "webpack --mode production",
+        "build": "webpack",
         "flow": "flow",
         "test": "jest --watch"
     },

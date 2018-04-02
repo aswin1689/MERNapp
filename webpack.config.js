@@ -40,5 +40,8 @@ module.exports = {
         compress: true,
         port: 9000,
         https: true
+    },
+    performance: {
+        hints: isProd() ? 'warnings' : false
     }
 };
