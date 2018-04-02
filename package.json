@@ -7,10 +7,9 @@
         "start": "webpack-dev-server --inline --hot --config webpack.config.js",
         "build": "webpack --mode production",
         "flow": "flow",
-        "lint": "node_modules/.bin/esw src/client",
-        "lint:watch": "npm run lint -- --watch"
+        "test": "jest --watch"
     },
-    "keywords": ["MongoDB", "Mongoose", "Express", "React", "Redux", "Node"],
+    "keywords": ["MongoDB", "Express", "React", "Redux", "Node"],
     "author": "Aswin Alapati",
     "license": "ISC",
     "dependencies": {
@@ -33,6 +32,9 @@
         "babel-preset-flow": "^6.23.0",
         "babel-preset-react": "^6.24.1",
         "css-loader": "^0.28.11",
+        "enzyme": "^3.3.0",
+        "enzyme-adapter-react-16": "^1.1.1",
+        "enzyme-to-json": "^3.3.3",
         "eslint": "^4.19.1",
         "eslint-plugin-import": "^2.10.0",
         "eslint-plugin-jsx-a11y": "^6.0.3",
@@ -41,6 +43,7 @@
         "flow-bin": "^0.69.0",
         "html-loader": "^0.5.5",
         "html-webpack-plugin": "^3.1.0",
+        "jest": "^22.4.3",
         "node-sass": "^4.8.3",
         "sass-loader": "^6.0.7",
         "style-loader": "^0.20.3",
@@ -48,5 +51,9 @@
         "webpack-cli": "^2.0.13",
         "webpack-dev-server": "^3.1.1",
         "webpack-merge": "^4.1.2"
+    },
+    "jest": {
+        "setupFiles": ["./tests/setup.js"],
+        "snapshotSerializers": ["enzyme-to-json/serializer"]
     }
 }
