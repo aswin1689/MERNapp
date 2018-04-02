@@ -4,10 +4,15 @@
     "description": "MERN app sample tutorial",
     "main": "index.js",
     "scripts": {
-        "start": "webpack-dev-server --open --config webpack.dev.js",
         "build": "webpack --config webpack.prod.js",
         "flow": "flow",
-        "test": "jest --watch"
+        "automate": "webpack-dev-server --open --config webpack.dev.js",
+        "automate:watch": "npm run automate",
+        "lint": "node_modules/.bin/esw src",
+        "lint:watch": "npm run lint -- --watch",
+        "test": "jest",
+        "test:watch": "npm run test -- --watch",
+        "start": "npm-run-all --parallel test:watch lint:watch automate:watch"
     },
     "keywords": ["MongoDB", "Express", "React", "Redux", "Node"],
     "author": "Aswin Alapati",
@@ -46,6 +51,7 @@
         "html-webpack-plugin": "^3.1.0",
         "jest": "^22.4.3",
         "node-sass": "^4.8.3",
+        "npm-run-all": "^4.1.2",
         "sass-loader": "^6.0.7",
         "style-loader": "^0.20.3",
         "uglifyjs-webpack-plugin": "^1.2.4",
@@ -55,7 +61,7 @@
         "webpack-merge": "^4.1.2"
     },
     "jest": {
-        "setupFiles": ["./tests/setup.js"],
+        "setupFiles": ["./src/tests/setup.js"],
         "snapshotSerializers": ["enzyme-to-json/serializer"]
     }
 }
