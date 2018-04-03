@@ -12,9 +12,14 @@
         "lint:watch": "npm run lint -- --watch",
         "test": "jest",
         "test:watch": "npm run test -- --watch",
-        "start": "npm-run-all --parallel test:watch lint:watch automate:watch"
+        "server": "nodemon --exec babel-node src/server/server.js --ignore src/client/static",
+        "start": "npm-run-all --parallel test:watch lint:watch automate:watch server"
     },
     "keywords": ["MongoDB", "Express", "React", "Redux", "Node"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/aswin1689/MERNapp.git"
+    },
     "author": "Aswin Alapati",
     "license": "ISC",
     "dependencies": {
@@ -22,8 +27,8 @@
         "body-parser": "^1.18.2",
         "express": "^4.16.3",
         "foreman": "^2.0.0",
+        "mongodb": "^3.0.5",
         "mongoose": "^5.0.12",
-        "nodemon": "^1.17.3",
         "react": "^16.3.0",
         "react-dom": "^16.3.0"
     },
@@ -51,6 +56,7 @@
         "html-webpack-plugin": "^3.1.0",
         "jest": "^22.4.3",
         "node-sass": "^4.8.3",
+        "nodemon": "^1.17.3",
         "npm-run-all": "^4.1.2",
         "sass-loader": "^6.0.7",
         "style-loader": "^0.20.3",
@@ -61,7 +67,7 @@
         "webpack-merge": "^4.1.2"
     },
     "jest": {
-        "setupFiles": ["./src/tests/setup.js"],
+        "setupFiles": ["./src/client/tests/setup.js"],
         "snapshotSerializers": ["enzyme-to-json/serializer"]
     }
 }

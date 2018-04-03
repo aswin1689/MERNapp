@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+//const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV;
 
@@ -9,7 +9,7 @@ const setPath = function(folderName) {
 };
 
 const isProd = function() {
-    return process.env.NODE_ENV === 'production' ? true : false;
+    return NODE_ENV === 'production' ? true : false;
 };
 
 const buildingForLocal = () => {
@@ -22,13 +22,13 @@ module.exports = {
         app: setPath('src/client/index.js')
     },
     plugins: [
-        new CleanWebpackPlugin(['src/static']),
+        //new CleanWebpackPlugin(['src/client/public']),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ],
     output: {
         filename: '[name].bundle.js',
-        path: setPath('src/static')
+        path: setPath('src/client/public')
     },
     module: {
         rules: [

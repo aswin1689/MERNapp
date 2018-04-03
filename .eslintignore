@@ -1,2 +1,2 @@
 # Ignore built files
-src/static/*
+src/client/public/*

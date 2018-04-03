@@ -10,7 +10,7 @@ const setPath = function(folderName) {
 module.exports = merge(common, {
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: setPath('src/resources'),
+        contentBase: setPath('src/client/public'),
         compress: true,
         port: 9000,
         https: true,
