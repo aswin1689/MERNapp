@@ -12,7 +12,7 @@ module.exports = merge(common, {
     devServer: {
         contentBase: setPath('src/client/public'),
         compress: true,
-        port: 9000,
+        port: 3000,
         https: true,
         hot: true
     }

@@ -1,9 +1,14 @@
 import express from 'express';
-import apiRouter from './index';
-const app = express();
+import path from 'path';
+import apiRouter from './api';
+const server = express();
 
-app.get('/', (req, res) => res.send('Hello app!'));
+server.set('view engine', 'ejs');
+server.set('views', path.join(__dirname, '../client/public'));
+server.use(express.static(path.join(__dirname, '../client/public')));
 
-app.use('/api', apiRouter);
+server.use('/', apiRouter);
 
-app.listen(3000, () => {});
+server.listen(3000, () => {
+    console.log('running at localhost: 3000');
+});

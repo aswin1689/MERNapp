@@ -12,8 +12,8 @@
         "lint:watch": "npm run lint -- --watch",
         "test": "jest",
         "test:watch": "npm run test -- --watch",
-        "server": "nodemon --exec babel-node src/server/server.js --ignore src/client/static",
-        "start": "npm-run-all --parallel test:watch lint:watch automate:watch server"
+        "server": "nodemon --exec babel-node src/server/server.js --ignore src/client/public",
+        "start": "npm-run-all --parallel test:watch lint:watch build server"
     },
     "keywords": ["MongoDB", "Express", "React", "Redux", "Node"],
     "repository": {
@@ -25,6 +25,7 @@
     "dependencies": {
         "axios": "^0.18.0",
         "body-parser": "^1.18.2",
+        "ejs": "^2.5.8",
         "express": "^4.16.3",
         "foreman": "^2.0.0",
         "mongodb": "^3.0.5",
