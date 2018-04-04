@@ -4,18 +4,22 @@
     "description": "MERN app sample tutorial",
     "main": "index.js",
     "scripts": {
-        "build": "webpack --config webpack.prod.js",
+        "watch": "webpack --watch --config webpack.dev.js",
         "flow": "flow",
-        "automate": "webpack-dev-server --open --config webpack.dev.js",
-        "automate:watch": "npm run automate",
         "lint": "node_modules/.bin/esw src",
         "lint:watch": "npm run lint -- --watch",
         "test": "jest",
         "test:watch": "npm run test -- --watch",
         "server": "nodemon --exec babel-node src/server/server.js --ignore src/client/public",
-        "start": "npm-run-all --parallel test:watch lint:watch build server"
+        "start": "npm-run-all --parallel test:watch lint:watch watch server"
     },
-    "keywords": ["MongoDB", "Express", "React", "Redux", "Node"],
+    "keywords": [
+        "MongoDB",
+        "Express",
+        "React",
+        "Redux",
+        "Node"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/aswin1689/MERNapp.git"
@@ -64,11 +68,14 @@
         "uglifyjs-webpack-plugin": "^1.2.4",
         "webpack": "^4.4.1",
         "webpack-cli": "^2.0.13",
-        "webpack-dev-server": "^3.1.1",
         "webpack-merge": "^4.1.2"
     },
     "jest": {
-        "setupFiles": ["./src/client/tests/setup.js"],
-        "snapshotSerializers": ["enzyme-to-json/serializer"]
+        "setupFiles": [
+            "./src/client/tests/setup.js"
+        ],
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
+        ]
     }
 }

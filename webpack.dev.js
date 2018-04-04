@@ -8,12 +8,5 @@ const setPath = function(folderName) {
 };
 
 module.exports = merge(common, {
-    devtool: 'inline-source-map',
-    devServer: {
-        contentBase: setPath('src/client/public'),
-        compress: true,
-        port: 3000,
-        https: true,
-        hot: true
-    }
+    devtool: 'inline-source-map'
 });

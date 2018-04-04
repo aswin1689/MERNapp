@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-//const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV;
 
@@ -21,14 +20,11 @@ module.exports = {
     entry: {
         app: setPath('src/client/index.js')
     },
-    plugins: [
-        //new CleanWebpackPlugin(['src/client/public']),
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin()
-    ],
     output: {
         filename: '[name].bundle.js',
-        path: setPath('src/client/public')
+        path: setPath('src/client/public'),
+        hotUpdateChunkFilename: 'hot/hot-update.js',
+        hotUpdateMainFilename: 'hot/hot-update.json'
     },
     module: {
         rules: [
