@@ -4,10 +4,12 @@ export const fetchingArticles = () => ({
     type: types.FETCHING
 });
 
-export const fetchArticlesSuccess = () => ({
-    type: types.FETCH_SUCCESS
+export const fetchArticlesSuccess = payload => ({
+    type: types.FETCH_SUCCESS,
+    payload
 });
 
-export const fetchArticlesFailure = () => ({
-    type: types.FETCH_FAILURE
+export const fetchArticlesFailure = payload => ({
+    type: types.FETCH_FAILURE,
+    payload
 });
