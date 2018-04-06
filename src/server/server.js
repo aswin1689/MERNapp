@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 //create instances
 const app = express();
 import apiRouter from './api';
+const port = process.env.API_PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../client/public'));
@@ -34,6 +35,6 @@ mongoose.connect('mongodb://aswin1689:sairam2016@ds231749.mlab.com:31749/merndb'
 
 app.use('/', apiRouter);
 
-app.listen(3000, () => {
-    console.log('running at localhost: 3000');
+app.listen(port, () => {
+    console.log('express server running at localhost: ', port);
 });

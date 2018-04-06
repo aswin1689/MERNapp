@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render properly 1`] = `
+<React.Fragment>
+  <header>
+    Menu logo
+  </header>
+  <main>
+    <ArticlesContainer />
+  </main>
+  <footer>
+    rights rserved
+  </footer>
+</React.Fragment>
+`;

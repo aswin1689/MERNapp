@@ -13,13 +13,7 @@
         "server": "nodemon --exec babel-node src/server/server.js --ignore src/client/public",
         "start": "npm-run-all --parallel test:watch lint:watch watch server"
     },
-    "keywords": [
-        "MongoDB",
-        "Express",
-        "React",
-        "Redux",
-        "Node"
-    ],
+    "keywords": ["MongoDB", "Express", "React", "Redux", "Node"],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/aswin1689/MERNapp.git"
@@ -35,7 +29,10 @@
         "mongodb": "^3.0.5",
         "mongoose": "^5.0.12",
         "react": "^16.3.0",
-        "react-dom": "^16.3.0"
+        "react-dom": "^16.3.0",
+        "react-redux": "^5.0.7",
+        "redux": "^3.7.2",
+        "redux-thunk": "^2.2.0"
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",
@@ -71,11 +68,7 @@
         "webpack-merge": "^4.1.2"
     },
     "jest": {
-        "setupFiles": [
-            "./src/client/tests/setup.js"
-        ],
-        "snapshotSerializers": [
-            "enzyme-to-json/serializer"
-        ]
+        "setupFiles": ["./jestSetup.js"],
+        "snapshotSerializers": ["enzyme-to-json/serializer"]
     }
 }
