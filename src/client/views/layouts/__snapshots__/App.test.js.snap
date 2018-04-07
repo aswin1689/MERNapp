@@ -2,14 +2,12 @@
 
 exports[`App should render properly 1`] = `
 <React.Fragment>
-  <header>
-    Menu logo
-  </header>
+  <Header
+    title="Blogging MERN"
+  />
   <main>
-    <ArticlesContainer />
+    <Connect(ArticlesContainer) />
   </main>
-  <footer>
-    rights rserved
-  </footer>
+  <Footer />
 </React.Fragment>
 `;
