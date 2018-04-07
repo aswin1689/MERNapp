@@ -4,28 +4,43 @@
     "description": "MERN app sample tutorial",
     "main": "index.js",
     "scripts": {
-        "build": "webpack --config webpack.prod.js",
+        "build": "NODE_ENV=production webpack",
+        "compile": "webpack --progress --colors --watch --config webpack.dev.js",
         "flow": "flow",
-        "automate": "webpack-dev-server --open --config webpack.dev.js",
-        "automate:watch": "npm run automate",
         "lint": "node_modules/.bin/esw src",
         "lint:watch": "npm run lint -- --watch",
         "test": "jest",
         "test:watch": "npm run test -- --watch",
-        "start": "npm-run-all --parallel test:watch lint:watch automate:watch"
+        "server": "nodemon --exec babel-node src/server/server.js --ignore src/client/public",
+        "start": "npm-run-all --parallel test:watch lint:watch compile server"
     },
-    "keywords": ["MongoDB", "Express", "React", "Redux", "Node"],
+    "keywords": [
+        "MongoDB",
+        "Express",
+        "React",
+        "Redux",
+        "Node"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/aswin1689/MERNapp.git"
+    },
     "author": "Aswin Alapati",
     "license": "ISC",
     "dependencies": {
         "axios": "^0.18.0",
         "body-parser": "^1.18.2",
+        "ejs": "^2.5.8",
         "express": "^4.16.3",
         "foreman": "^2.0.0",
+        "mongodb": "^3.0.5",
         "mongoose": "^5.0.12",
-        "nodemon": "^1.17.3",
         "react": "^16.3.0",
-        "react-dom": "^16.3.0"
+        "react-dom": "^16.3.0",
+        "react-redux": "^5.0.7",
+        "redux": "^3.7.2",
+        "redux-thunk": "^2.2.0",
+        "styled-components": "^3.2.5"
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",
@@ -51,17 +66,22 @@
         "html-webpack-plugin": "^3.1.0",
         "jest": "^22.4.3",
         "node-sass": "^4.8.3",
+        "nodemon": "^1.17.3",
         "npm-run-all": "^4.1.2",
         "sass-loader": "^6.0.7",
         "style-loader": "^0.20.3",
         "uglifyjs-webpack-plugin": "^1.2.4",
         "webpack": "^4.4.1",
+        "webpack-bundle-analyzer": "^2.11.1",
         "webpack-cli": "^2.0.13",
-        "webpack-dev-server": "^3.1.1",
         "webpack-merge": "^4.1.2"
     },
     "jest": {
-        "setupFiles": ["./src/tests/setup.js"],
-        "snapshotSerializers": ["enzyme-to-json/serializer"]
+        "setupFiles": [
+            "./jestSetup.js"
+        ],
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
+        ]
     }
 }
