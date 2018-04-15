@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
 
-import { articlesOperations } from '../../../state/ducks/articles';
+import { articlesActions } from '../../../state/ducks/articles';
 
 const ArticleWrapper = styled.div`
     margin: 0.6em;
@@ -17,7 +17,7 @@ const ArticleWrapper = styled.div`
 
 export class ArticlesContainer extends Component {
     componentDidMount() {
-        this.props.articlesOperations.fetchArticles();
+        this.props.articlesActions.fetchArticles();
     }
 
     render() {
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        articlesOperations: bindActionCreators(articlesOperations, dispatch)
+        articlesActions: bindActionCreators(articlesActions, dispatch)
     };
 };
 
