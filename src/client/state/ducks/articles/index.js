@@ -1,8 +1,9 @@
 import reducer from './reducers';
 
-import * as articlesOperations from './operations';
 import * as articlesSelectors from './selectors';
+import * as articlesActions from './actions';
+import * as articlesTypes from './types';
 
-export { articlesOperations, articlesSelectors };
+export { articlesActions, articlesSelectors, articlesTypes };
 
 export default reducer;

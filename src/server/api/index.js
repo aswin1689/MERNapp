@@ -1,6 +1,5 @@
 import express from 'express';
 const router = express.Router();
-const bodyParser = require('body-parser');
 const Article = require('../../../models/Article');
 
 router.get('/', (req, res) => {
