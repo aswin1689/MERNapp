@@ -32,7 +32,7 @@ export class ArticlesContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        articlesList: state.articles.articles.articlesList
+        articlesList: state.articles.articlesList
     };
 };
 

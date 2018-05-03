@@ -6,7 +6,7 @@ import { articlesActions, articlesTypes } from '../ducks/articles';
 //worker sagas
 export function* fetchArticles() {
     try {
-        const response = yield call(axios.get, 'http://localhost:3000/articles');
+        const response = yield call(axios.get, '/articles');
         yield put(articlesActions.fetchArticlesSuccess(response.data));
     } catch (error) {
         yield put(articlesActions.fetchArticlesFailure(error));

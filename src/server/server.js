@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 //create instances
 const app = express();
 import apiRouter from './api';
-const port = process.env.API_PORT || 3000;
+const port = process.env.port || 3000;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../client/public'));

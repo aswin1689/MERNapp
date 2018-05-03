@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import types from './types';
 
 const initialState = {
@@ -9,7 +8,7 @@ const initialState = {
 
 const articlesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.FETCHING:
+        case types.FETCH:
             return Object.assign({}, state, { isFetching: true });
 
         case types.FETCH_SUCCESS:
@@ -23,8 +22,4 @@ const articlesReducer = (state = initialState, action) => {
     }
 };
 
-const reducer = combineReducers({
-    articles: articlesReducer
-});
-
-export default reducer;
+export default articlesReducer;
