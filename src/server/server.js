@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
     );
     //and remove cacheing so we get the most recent comments
     res.setHeader('Cache-Control', 'no-cache');
-    next();
+    next(); //move on to next middleware
 });
 
 mongoose.connect('mongodb://aswin1689:sairam2016@ds231749.mlab.com:31749/merndb');

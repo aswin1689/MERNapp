@@ -10,9 +10,9 @@ router.get('/', (req, res) => {
 router
     .route('/articles')
     //retrieve all articles from the database
-    .get(function(req, res) {
+    .get((req, res) => {
         //looks at our Article Schema
-        Article.find(function(err, articles) {
+        Article.find((err, articles) => {
             if (err) {
                 res.send(err);
             }
@@ -21,7 +21,7 @@ router
         });
     })
     //post new article to the database
-    .post(function(req, res) {
+    .post((req, res) => {
         const article = new Article();
         //body parser lets us use the req.body
         article.author = req.body.author;
@@ -29,11 +29,44 @@ router
         article.content = req.body.content;
         article.publishedDate = req.body.publishedDate;
 
-        article.save(function(err) {
+        article.save(err => {
             if (err) {
                 res.send(err);
             }
-            res.json({ message: 'Article successfully added!' });
+            res.json({ message: 'Article has been added successfully.' });
+        });
+    });
+
+// update and delete an article using /articles/:articleId
+router
+    .route('/articles/:articleId')
+    //update an article in the database
+    .put((req, res) => {
+        console.log('found route put');
+        Article.findById(req.params.articleId, (err, article) => {
+            if (err) {
+                res.send(err);
+            }
+            req.body.author ? (article.author = req.body.author) : null;
+            req.body.content ? (article.content = req.body.content) : null;
+            req.body.title ? (article.title = req.body.title) : null;
+            req.body.publishedDate ? (article.publishedDate = req.body.publishedDate) : null;
+
+            article.save(err => {
+                if (err) {
+                    res.send(err);
+                }
+                res.json({ message: 'Article has been updated successfully.' });
+            });
+        });
+    })
+    //delete an article in the database
+    .delete((req, res) => {
+        Article.remove({ _id: req.params.articleId }, err => {
+            if (err) {
+                res.send(err);
+            }
+            res.json({ message: 'Article has been deleted successfully.' });
         });
     });
 
